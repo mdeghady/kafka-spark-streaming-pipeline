@@ -1,0 +1,50 @@
+{
+  "name": "FakeUsers",
+  "namespace": "com.kafka.schema.avro",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "first_name",
+      "type": "string"
+    },
+    {
+      "name": "last_name",
+      "type": "string"
+    },
+    {
+      "name": "gender",
+      "type": {
+              "name": "GenderType",
+              "type": "enum",
+              "symbols": [
+                "male",
+                "female"
+              ]
+            }
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "picture",
+      "type": "string"
+    },
+    {
+      "name": "city",
+      "type": "string"
+    },
+    {
+      "name": "country",
+      "type": "string"
+    }
+  ]
+}

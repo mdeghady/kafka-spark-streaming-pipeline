@@ -1,0 +1,3 @@
+com\kafka\schema\avro\FakeUsers.class
+com\kafka\schema\avro\FakeUsers$Builder.class
+com\kafka\schema\avro\GenderType.class
