@@ -52,7 +52,7 @@ def get_data_from_kafka(spark_session):
             .option("subscribe", KAFKA_TOPIC) \
             .option("startingOffsets", "earliest") \
             .load() \
-            .selectExpr("substring(value, 6) as avro_value")
+            .selectExpr("substring(value, 6) as avro_value") # Skip the first 5 bytes (reserved by schema registry encoding protocol)
 
     except Exception as e:
         logging.error(f"Couldn't connect to Kafka due to {e}")
