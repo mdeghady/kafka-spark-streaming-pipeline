@@ -3,7 +3,7 @@ In this project, I tried to mimic a real-world scenario by building a Kafka to s
 
 I chose to use java kafka producer because it has some advantages making it the best choice when it comes to working with schema registry (maven plugins can generate classes from the Avro schema making it easy to generate Kafka messages from java objects)
 
-I build the Kafka cluster on Kraft mode so no need for zookeeper for cluster management.
+I build the Kafka cluster on Kraft mode so no need for Zookeeper for cluster management.
 
 ![project structure](ProjectStructure.png)
 
