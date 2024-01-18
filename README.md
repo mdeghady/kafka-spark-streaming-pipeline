@@ -1,9 +1,9 @@
 # kafka-spark-streaming-pipeline
-In this project I tried to mimic a real world scenario by building a kfka to spark streaming pipeline by building the infraustructure by docker compose.
+In this project, I tried to mimic a real-world scenario by building a Kafka to spark streaming pipeline by building the infrastructure by docker-compose.
 
-I choosed to use java kafka producer because it has some advantages making it best choice when it comes to work with schema registry (maven plugins can generate classes from the avro schema making it easy to generate kafka messages from java objects)
+I chose to use java kafka producer because it has some advantages making it the best choice when it comes to working with schema registry (maven plugins can generate classes from the Avro schema making it easy to generate Kafka messages from java objects)
 
-I build the kafka cluster on kraft mode so no need for zookeper for cluster management.
+I build the Kafka cluster on Kraft mode so no need for zookeeper for cluster management.
 
 ![project structure](ProjectStructure.png)
 
@@ -20,9 +20,9 @@ docker-compose up
  ```
 
 ## Start working with kafka & spark
-After docker compose finshed building the infrastructure successfully you can start the work flow by creating kafka topic: <br>
+Afte building the infrastructurer by docker compose successfully, you can start the work flow by creating kafka topic: <br>
 - I created a kafka topic with only one partition & three replicas. 
-- you can use any kafka broker to do that not only kafka1
+- you can use any kafka broker to do that , not only kafka1
  ```
 docker exec kafka1 kafka-topics \
  --bootstrap-server localhost:9092 \
@@ -44,8 +44,8 @@ docker cp -L SprkCode/spark_consumer.py \
  op-spark-master-1:/opt/bitnami/spark/spark_consumer.py
 ```
 
-Now we need to get the address where our spark master is running.
-Run the following command and the output will have info like the following line.
+Now, we need to get the address where our spark master is running.
+Run the following command .the output will have info like the following line.
 
 ```
 docker logs op-spark-master-1
@@ -61,11 +61,11 @@ docker exec op-spark-master-1 spark-submit \
 ```
 > [!WARNING] 
 > the submitted packages jars has naming convention as groupId:artifactId:version:
-> - artifactId contins of packageName_scalaVersion .scalaVersion must be the same used in the spark . In the case of kafka package kafka & spark must use the same scala version. In this project I use kafka 7.5.2 & spark 3.5.0 and the both use scala 2.12
-> - version is the spark version used in the spark cluster or the most closest one like on the cassandra jar I used the 3.4.0 version because I didn't find jar has the latest spark version 3.5.0
+> - artifactId contins of packageName_scalaVersion .scalaVersion must be the same used in the spark . In the case of kafka package kafka & spark must use the same scala version. In this project. I use kafka 7.5.2 & spark 3.5.0 and the both use scala 2.12 .
+> - version is the spark version used in the spark cluster or the most closest one like on the cassandra jar I used the 3.4.0 version because I didn't find jar has the latest spark version 3.5.0 .
 
 ## Start the real work
-Now we built the Infrastructure and the relative components and we now ready to start sending messages , processing them and iserting them to cassandra.
+Now we built the Infrastructure and the relative components and we are ready to start sending messages , processing them and iserting them to cassandra.
 
 To run the kafka java producer you simply run the kafkaProducer jar
 ```
